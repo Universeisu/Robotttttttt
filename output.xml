@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.0 (Python 3.12.2 on win32)" generated="2024-04-06T21:38:02.196617" rpa="false" schemaversion="5">
+<suite id="s1" name="TestForm" source="C:\Users\film2\Desktop\robot1236\TestForm.robot">
+<test id="s1-t1" name="Search chrome and Verify Results" line="18">
+<kw name="Open chrome ReactForm">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2024-04-06T21:38:02.636647" level="INFO">Opening browser 'Chrome' to base url 'http://localhost:5174'.</msg>
+<arg>http://localhost:5174</arg>
+<arg>${BROWSER}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2024-04-06T21:38:02.636647" elapsed="3.176282"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2024-04-06T21:38:05.812929" elapsed="0.153011"/>
+</kw>
+<status status="PASS" start="2024-04-06T21:38:02.634647" elapsed="3.332293"/>
+</kw>
+<kw name="Input firstnameeng">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-04-06T21:38:05.969938" level="INFO">Typing text 'Catherine' into text field 'id=firstnameEng'.</msg>
+<arg>id=firstnameEng</arg>
+<arg>${FIRST_NAME_ENG}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-04-06T21:38:05.968942" elapsed="0.339588"/>
+</kw>
+<status status="PASS" start="2024-04-06T21:38:05.967940" elapsed="0.340590"/>
+</kw>
+<kw name="Input IDCard">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-04-06T21:38:06.310532" level="INFO">Typing text '1739300002297' into text field 'name=idCard'.</msg>
+<arg>name=idCard</arg>
+<arg>${ID_CARD}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-04-06T21:38:06.309530" elapsed="0.265019"/>
+</kw>
+<status status="PASS" start="2024-04-06T21:38:06.309530" elapsed="0.265019"/>
+</kw>
+<kw name="Input Password">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-04-06T21:38:06.576548" level="INFO">Typing text '12123121aB' into text field 'id=password'.</msg>
+<arg>id=password</arg>
+<arg>${PASSWORD}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-04-06T21:38:06.575546" elapsed="0.204015"/>
+</kw>
+<status status="PASS" start="2024-04-06T21:38:06.575546" elapsed="0.204015"/>
+</kw>
+<kw name="Input Mobile">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-04-06T21:38:06.781562" level="INFO">Typing text '0800782723' into text field 'name=mobile'.</msg>
+<arg>name=mobile</arg>
+<arg>${MOBILE}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-04-06T21:38:06.780560" elapsed="0.244213"/>
+</kw>
+<status status="PASS" start="2024-04-06T21:38:06.780560" elapsed="0.245213"/>
+</kw>
+<kw name="Input Email">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-04-06T21:38:07.026775" level="INFO">Typing text '654259029@webmail.npru.ac.th' into text field 'id=email'.</msg>
+<arg>id=email</arg>
+<arg>${EMAIL}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-04-06T21:38:07.026775" elapsed="0.308750"/>
+</kw>
+<status status="PASS" start="2024-04-06T21:38:07.025773" elapsed="0.309752"/>
+</kw>
+<kw name="Verify Results">
+<kw name="Wait Until Page Contains" owner="SeleniumLibrary">
+<msg time="2024-04-06T21:38:12.771203" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-10.png"&gt;&lt;img src="selenium-screenshot-10.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg time="2024-04-06T21:38:12.771203" level="FAIL">Text 'กรุณากรอกชื่อเป็นภาษาอังกฤษเท่านั้น' did not appear in 5 seconds.</msg>
+<arg>${RESULT_FIRST_NAME_ENG}</arg>
+<doc>Waits until ``text`` appears on the current page.</doc>
+<status status="FAIL" start="2024-04-06T21:38:07.338533" elapsed="5.435669">Text 'กรุณากรอกชื่อเป็นภาษาอังกฤษเท่านั้น' did not appear in 5 seconds.</status>
+</kw>
+<kw name="Page Should Contain" owner="SeleniumLibrary">
+<arg>${RESULT_FIRST_NAME_ENG}</arg>
+<doc>Verifies that current page contains ``text``.</doc>
+<status status="NOT RUN" start="2024-04-06T21:38:12.775202" elapsed="0.000000"/>
+</kw>
+<kw name="Wait Until Page Contains" owner="SeleniumLibrary">
+<arg>${RESULT_ID_CARD}</arg>
+<doc>Waits until ``text`` appears on the current page.</doc>
+<status status="NOT RUN" start="2024-04-06T21:38:12.775202" elapsed="0.000000"/>
+</kw>
+<kw name="Page Should Contain" owner="SeleniumLibrary">
+<arg>${RESULT_ID_CARD}</arg>
+<doc>Verifies that current page contains ``text``.</doc>
+<status status="NOT RUN" start="2024-04-06T21:38:12.775202" elapsed="0.000000"/>
+</kw>
+<kw name="Wait Until Page Contains" owner="SeleniumLibrary">
+<arg>${RESULT_PASSWORD}</arg>
+<doc>Waits until ``text`` appears on the current page.</doc>
+<status status="NOT RUN" start="2024-04-06T21:38:12.775202" elapsed="0.000000"/>
+</kw>
+<kw name="Page Should Contain" owner="SeleniumLibrary">
+<arg>${RESULT_PASSWORD}</arg>
+<doc>Verifies that current page contains ``text``.</doc>
+<status status="NOT RUN" start="2024-04-06T21:38:12.776204" elapsed="0.000000"/>
+</kw>
+<kw name="Wait Until Page Contains" owner="SeleniumLibrary">
+<arg>${RESULT_MOBILE}</arg>
+<doc>Waits until ``text`` appears on the current page.</doc>
+<status status="NOT RUN" start="2024-04-06T21:38:12.776204" elapsed="0.000000"/>
+</kw>
+<kw name="Page Should Contain" owner="SeleniumLibrary">
+<arg>${RESULT_MOBILE}</arg>
+<doc>Verifies that current page contains ``text``.</doc>
+<status status="NOT RUN" start="2024-04-06T21:38:12.776204" elapsed="0.000000"/>
+</kw>
+<kw name="Wait Until Page Contains" owner="SeleniumLibrary">
+<arg>${RESULT_EMAIL}</arg>
+<doc>Waits until ``text`` appears on the current page.</doc>
+<status status="NOT RUN" start="2024-04-06T21:38:12.776204" elapsed="0.000000"/>
+</kw>
+<kw name="Page Should Contain" owner="SeleniumLibrary">
+<arg>${RESULT_EMAIL}</arg>
+<doc>Verifies that current page contains ``text``.</doc>
+<status status="NOT RUN" start="2024-04-06T21:38:12.777207" elapsed="0.000000"/>
+</kw>
+<kw name="Close Browser" owner="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="NOT RUN" start="2024-04-06T21:38:12.777207" elapsed="0.000000"/>
+</kw>
+<status status="FAIL" start="2024-04-06T21:38:07.337526" elapsed="5.439681">Text 'กรุณากรอกชื่อเป็นภาษาอังกฤษเท่านั้น' did not appear in 5 seconds.</status>
+</kw>
+<doc>Test case to search chrome and verify results</doc>
+<tag>search</tag>
+<status status="FAIL" start="2024-04-06T21:38:02.633644" elapsed="10.144563">Text 'กรุณากรอกชื่อเป็นภาษาอังกฤษเท่านั้น' did not appear in 5 seconds.</status>
+</test>
+<status status="FAIL" start="2024-04-06T21:38:02.200615" elapsed="10.579588"/>
+</suite>
+<statistics>
+<total>
+<stat pass="0" fail="1" skip="0">All Tests</stat>
+</total>
+<tag>
+<stat pass="0" fail="1" skip="0">search</stat>
+</tag>
+<suite>
+<stat pass="0" fail="1" skip="0" id="s1" name="TestForm">TestForm</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
