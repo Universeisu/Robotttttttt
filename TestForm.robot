@@ -2,65 +2,133 @@
 Library           SeleniumLibrary
 
 *** Variables ***
-${BROWSER}              Chrome
-# ${FIRST_NAME_THA}       ฟ้า
-${FIRST_NAME_ENG}       Catherine
-${ID_CARD}              1739300002297
-${PASSWORD}             12123121aB
-${MOBILE}               0800782723
-${EMAIL}                654259029@webmail.npru.ac.th
-
-#${RESULT_FIRST_NAME_THA}  กรุณากรอกชื่อเป็นภาษาไทยเท่านั้น
-${RESULT_FIRST_NAME_ENG}    กรุณากรอกชื่อเป็นภาษาอังกฤษเท่านั้น
-${RESULT_ID_CARD}           กรุณากรอกหมายเลขบัตรประชาชน 13 หลัก เป็นตัวเลขทั้งหมด
-${RESULT_PASSWORD}          รหัสผ่านต้องมีอย่างน้อย 8 ตัวอักษร ประกอบด้วยอักษรตัวเล็ก อักษรตัวใหญ่ และตัวเลข
-${RESULT_MOBILE}            กรุณากรอกเบอร์โทรศัพท์ 10 หลักเท่านั้น
-${RESULT_EMAIL}             กรุณากรอกอีเมลที่มีโดเมน @webmail.npru.ac.th เท่านั้น
-
+${BROWSER}    Chrome
+##########   Valid    ##########
+${Name_Title_TH_1}    นาย
+${Name_Title_TH_2}    นาง
+${Name_Title_TH_3}    นางสาว
+${Firstname_TH}    ปฏิพัทธ์
+${Lastname_TH}    รัตโนสถ
+${Name_Title_EN_1}    Mr.
+${Name_Title_EN_2}    Mrs.
+${Name_Title_EN_3}    Ms.
+${Firstname_EN}    Patiphat
+${Lastname_EN}    Rattanosot
+${Day}  5
+${Month}    กันยายน
+${YearB.E.}    2546
+${IDcard_13}    1729800289811
+${Password8}    IsNotPassword8
+${Phone_number}    0800781563
+${Email_Webmail}    654259017@webmail.npru.ac.th
+##########   In Valid    ##########
+${Firstname_EN_low}    patiphat
+${Lastname_EN_low}    rattanosot
+${IDcard_A_12}    A729800289811
+${IDcard_12}    172980028981
+${password8}    isnotpassword8    # Lowercase
+${PASSWORD8}    ISNOTPASSWORD8    # Uppercase
+${Password_7}    IsNotPa
+${Phone_number_<10}    080078156
+${Email_Gmail}    654259017@Gmail.com
 
 *** Test Cases ***
-Search chrome and Verify Results
-    [Documentation]    Test case to search chrome and verify results
-    [Tags]              search
-    Open chrome ReactForm
-    # Input firstnamethai
-    Input firstnameeng
-    Input IDCard
+Successfully signed
+    Open SignupForm
+    Wait Until Page 
+    Input TH information
+    Input EN information
+    Input Birthday
+    Input ID Card
     Input Password
-    Input Mobile
+    Input Phone Number
     Input Email
-    Verify Results
+    Input Checkbox
+    Click Button
+    Verify Signup Results
+    Close Browser
+Check Invalid Name TH 
+    Open SignupForm
+    Wait Until Page 
+    TH information But Input EN
+    Click Space
+    Verify Invalid Name_TH_Only
+    Close Browser
+
+Check In Valid Name EN
+    Open SignupForm
+    Wait Until Page 
+    EN information But Input TH
+    Click Space
+    Verify Invalid Name_EN_Only
+    Close Browser
+
+Check In ID Card Valid 
+    Open SignupForm
+    Wait Until Page 
+    Input ID Card A_12 characters
+    Click Space
+    Verify Invalid IDcard_Only
+    Close Browser
 
 *** Keywords ***
-Open chrome ReactForm
-    Open Browser    http://localhost:5174    ${BROWSER}
-    Maximize Browser Window
+Open SignupForm
+    Open Browser    http://localhost:5173/    ${BROWSER}
 
-# Input firstnamethai
-#     Input Text    name=firstnameTha     ${FIRST_NAME_THA}
+Wait Until Page
+    Wait Until Page Contains Element    id=root
+###########
+Input TH information
+    Select From List by Value    id=nameTitleTha    ${Name_Title_TH_1}
+    Input Text      id=firstnameTha                 ${Firstname_TH}
+    Input Text      id=lastnameTha                 ${Lastname_TH}
 
-Input firstnameeng
-    Input Text    id=firstnameEng    ${FIRST_NAME_ENG}
-Input IDCard
-    Input Text    name=idCard    ${ID_CARD}
+Input EN information
+    Select From List by Value    id=nameTitleEng    ${Name_Title_EN_1}
+    Input Text      id=firstnameEng                 ${Firstname_EN}
+    Input Text      id=lastnameEng                 ${Lastname_EN}
+
+Input Birthday
+    Select From List by Value    id=birthDate    ${Day}
+    Select From List by Label    id=birthMonth    ${Month}
+    Select From List by Label    id=birthYear    ${YearB.E.}
+
+Input ID Card
+    Input Text      id=idCard                 ${IDcard_13}
 
 Input Password
-    Input Text    id=password    ${PASSWORD}
-Input Mobile
-    Input Text    name=mobile    ${MOBILE}
+    Input Text      id=password                 ${Password8}
+
+Input Phone Number
+    Input Text      id=mobile                 ${Phone_number}
 
 Input Email
-    Input Text    id=email    ${EMAIL}
-Verify Results
-    # Wait Until Page Contains    ${RESULT_FIRST_NAME_THA}
-    Wait Until Page Contains    ${RESULT_FIRST_NAME_ENG}
-    Page Should Contain        ${RESULT_FIRST_NAME_ENG}
-    Wait Until Page Contains    ${RESULT_ID_CARD}
-    Page Should Contain    ${RESULT_ID_CARD}
-    Wait Until Page Contains    ${RESULT_PASSWORD}
-    Page Should Contain    ${RESULT_PASSWORD}
-    Wait Until Page Contains    ${RESULT_MOBILE}
-    Page Should Contain    ${RESULT_MOBILE}
-    Wait Until Page Contains    ${RESULT_EMAIL}
-    Page Should Contain    ${RESULT_EMAIL}
-    Close Browser   
+    Input Text      id=email                 ${Email_Webmail}
+
+Input Checkbox
+    Execute JavaScript    document.getElementById('accept').click()
+    
+Click Button    
+    Execute JavaScript    document.getElementById('submitbtn').click()  
+Verify Signup Results  
+    Page Should Contain    Submitting...   
+############
+Click Space
+    Click Element    id=root
+TH information But Input EN
+    Input Text      id=firstnameTha                ${Firstname_EN}
+    Input Text      id=lastnameTha                 ${Lastname_EN}
+EN information But Input TH
+    Input Text      id=firstnameEng                 ${Firstname_TH}
+    Input Text      id=lastnameEng                 ${Lastname_TH}
+
+Input ID Card A_12 characters
+    Input Text      id=idCard                 ${IDcard_A_12}
+Verify Invalid Name_TH_Only
+    Page Should Contain    Must be in Thai only
+
+Verify Invalid Name_EN_Only
+    Page Should Contain    Must be in English only
+
+Verify Invalid IDcard_Only
+    Page Should Contain    number only   

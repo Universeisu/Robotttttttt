@@ -1,145 +1,316 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 7.0 (Python 3.12.2 on win32)" generated="2024-04-06T21:38:02.196617" rpa="false" schemaversion="5">
+<robot generator="Robot 7.0 (Python 3.12.2 on win32)" generated="2024-04-07T12:11:26.469801" rpa="false" schemaversion="5">
 <suite id="s1" name="TestForm" source="C:\Users\film2\Desktop\robot1236\TestForm.robot">
-<test id="s1-t1" name="Search chrome and Verify Results" line="18">
-<kw name="Open chrome ReactForm">
+<test id="s1-t1" name="Successfully signed" line="36">
+<kw name="Open SignupForm">
 <kw name="Open Browser" owner="SeleniumLibrary">
-<msg time="2024-04-06T21:38:02.636647" level="INFO">Opening browser 'Chrome' to base url 'http://localhost:5174'.</msg>
-<arg>http://localhost:5174</arg>
+<msg time="2024-04-07T12:11:26.876593" level="INFO">Opening browser 'Chrome' to base url 'http://localhost:5173/'.</msg>
+<arg>http://localhost:5173/</arg>
 <arg>${BROWSER}</arg>
 <doc>Opens a new browser instance to the optional ``url``.</doc>
-<status status="PASS" start="2024-04-06T21:38:02.636647" elapsed="3.176282"/>
+<status status="PASS" start="2024-04-07T12:11:26.875593" elapsed="5.665432"/>
 </kw>
-<kw name="Maximize Browser Window" owner="SeleniumLibrary">
-<doc>Maximizes current browser window.</doc>
-<status status="PASS" start="2024-04-06T21:38:05.812929" elapsed="0.153011"/>
+<status status="PASS" start="2024-04-07T12:11:26.874594" elapsed="5.668433"/>
 </kw>
-<status status="PASS" start="2024-04-06T21:38:02.634647" elapsed="3.332293"/>
+<kw name="Wait Until Page">
+<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
+<arg>id=root</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" start="2024-04-07T12:11:32.546026" elapsed="0.052001"/>
 </kw>
-<kw name="Input firstnameeng">
+<status status="PASS" start="2024-04-07T12:11:32.545027" elapsed="0.053000"/>
+</kw>
+<kw name="Input TH information">
+<kw name="Select From List By Value" owner="SeleniumLibrary">
+<msg time="2024-04-07T12:11:32.599029" level="INFO">Selecting options from selection list 'id=nameTitleTha' by value นาย.</msg>
+<arg>id=nameTitleTha</arg>
+<arg>${Name_Title_TH_1}</arg>
+<doc>Selects options from selection list ``locator`` by ``values``.</doc>
+<status status="PASS" start="2024-04-07T12:11:32.599029" elapsed="0.077004"/>
+</kw>
 <kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2024-04-06T21:38:05.969938" level="INFO">Typing text 'Catherine' into text field 'id=firstnameEng'.</msg>
+<msg time="2024-04-07T12:11:32.677034" level="INFO">Typing text 'ปฏิพัทธ์' into text field 'id=firstnameTha'.</msg>
+<arg>id=firstnameTha</arg>
+<arg>${Firstname_TH}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-04-07T12:11:32.677034" elapsed="0.253602"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-04-07T12:11:32.931636" level="INFO">Typing text 'รัตโนสถ' into text field 'id=lastnameTha'.</msg>
+<arg>id=lastnameTha</arg>
+<arg>${Lastname_TH}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-04-07T12:11:32.931636" elapsed="0.163012"/>
+</kw>
+<status status="PASS" start="2024-04-07T12:11:32.599029" elapsed="0.496621"/>
+</kw>
+<kw name="Input EN information">
+<kw name="Select From List By Value" owner="SeleniumLibrary">
+<msg time="2024-04-07T12:11:33.097647" level="INFO">Selecting options from selection list 'id=nameTitleEng' by value Mr..</msg>
+<arg>id=nameTitleEng</arg>
+<arg>${Name_Title_EN_1}</arg>
+<doc>Selects options from selection list ``locator`` by ``values``.</doc>
+<status status="PASS" start="2024-04-07T12:11:33.096651" elapsed="0.056001"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-04-07T12:11:33.152652" level="INFO">Typing text 'Patiphat' into text field 'id=firstnameEng'.</msg>
 <arg>id=firstnameEng</arg>
-<arg>${FIRST_NAME_ENG}</arg>
+<arg>${Firstname_EN}</arg>
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2024-04-06T21:38:05.968942" elapsed="0.339588"/>
+<status status="PASS" start="2024-04-07T12:11:33.152652" elapsed="0.129012"/>
 </kw>
-<status status="PASS" start="2024-04-06T21:38:05.967940" elapsed="0.340590"/>
-</kw>
-<kw name="Input IDCard">
 <kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2024-04-06T21:38:06.310532" level="INFO">Typing text '1739300002297' into text field 'name=idCard'.</msg>
-<arg>name=idCard</arg>
-<arg>${ID_CARD}</arg>
+<msg time="2024-04-07T12:11:33.282662" level="INFO">Typing text 'Rattanosot' into text field 'id=lastnameEng'.</msg>
+<arg>id=lastnameEng</arg>
+<arg>${Lastname_EN}</arg>
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2024-04-06T21:38:06.309530" elapsed="0.265019"/>
+<status status="PASS" start="2024-04-07T12:11:33.282662" elapsed="0.141011"/>
 </kw>
-<status status="PASS" start="2024-04-06T21:38:06.309530" elapsed="0.265019"/>
+<status status="PASS" start="2024-04-07T12:11:33.095650" elapsed="0.328023"/>
+</kw>
+<kw name="Input Birthday">
+<kw name="Select From List By Value" owner="SeleniumLibrary">
+<msg time="2024-04-07T12:11:33.425675" level="INFO">Selecting options from selection list 'id=birthDate' by value 5.</msg>
+<arg>id=birthDate</arg>
+<arg>${Day}</arg>
+<doc>Selects options from selection list ``locator`` by ``values``.</doc>
+<status status="PASS" start="2024-04-07T12:11:33.424673" elapsed="0.104304"/>
+</kw>
+<kw name="Select From List By Label" owner="SeleniumLibrary">
+<msg time="2024-04-07T12:11:33.528977" level="INFO">Selecting options from selection list 'id=birthMonth' by label กันยายน.</msg>
+<arg>id=birthMonth</arg>
+<arg>${Month}</arg>
+<doc>Selects options from selection list ``locator`` by ``labels``.</doc>
+<status status="PASS" start="2024-04-07T12:11:33.528977" elapsed="0.093005"/>
+</kw>
+<kw name="Select From List By Label" owner="SeleniumLibrary">
+<msg time="2024-04-07T12:11:33.621982" level="INFO">Selecting options from selection list 'id=birthYear' by label 2546.</msg>
+<msg time="2024-04-07T12:11:33.819430" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-1.png"&gt;&lt;img src="selenium-screenshot-1.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg time="2024-04-07T12:11:33.819430" level="FAIL">NoSuchElementException: Message: Could not locate element with visible text: 2546; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
+</msg>
+<arg>id=birthYear</arg>
+<arg>${YearB.E.}</arg>
+<doc>Selects options from selection list ``locator`` by ``labels``.</doc>
+<status status="FAIL" start="2024-04-07T12:11:33.621982" elapsed="0.250288">NoSuchElementException: Message: Could not locate element with visible text: 2546; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
+</status>
+</kw>
+<status status="FAIL" start="2024-04-07T12:11:33.424673" elapsed="0.447597">NoSuchElementException: Message: Could not locate element with visible text: 2546; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
+</status>
+</kw>
+<kw name="Input ID Card">
+<status status="NOT RUN" start="2024-04-07T12:11:33.873271" elapsed="0.000000"/>
 </kw>
 <kw name="Input Password">
-<kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2024-04-06T21:38:06.576548" level="INFO">Typing text '12123121aB' into text field 'id=password'.</msg>
-<arg>id=password</arg>
-<arg>${PASSWORD}</arg>
-<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2024-04-06T21:38:06.575546" elapsed="0.204015"/>
+<status status="NOT RUN" start="2024-04-07T12:11:33.873271" elapsed="0.000000"/>
 </kw>
-<status status="PASS" start="2024-04-06T21:38:06.575546" elapsed="0.204015"/>
-</kw>
-<kw name="Input Mobile">
-<kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2024-04-06T21:38:06.781562" level="INFO">Typing text '0800782723' into text field 'name=mobile'.</msg>
-<arg>name=mobile</arg>
-<arg>${MOBILE}</arg>
-<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2024-04-06T21:38:06.780560" elapsed="0.244213"/>
-</kw>
-<status status="PASS" start="2024-04-06T21:38:06.780560" elapsed="0.245213"/>
+<kw name="Input Phone Number">
+<status status="NOT RUN" start="2024-04-07T12:11:33.874272" elapsed="0.000000"/>
 </kw>
 <kw name="Input Email">
-<kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2024-04-06T21:38:07.026775" level="INFO">Typing text '654259029@webmail.npru.ac.th' into text field 'id=email'.</msg>
-<arg>id=email</arg>
-<arg>${EMAIL}</arg>
-<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2024-04-06T21:38:07.026775" elapsed="0.308750"/>
+<status status="NOT RUN" start="2024-04-07T12:11:33.875271" elapsed="0.000000"/>
 </kw>
-<status status="PASS" start="2024-04-06T21:38:07.025773" elapsed="0.309752"/>
+<kw name="Input Checkbox">
+<status status="NOT RUN" start="2024-04-07T12:11:33.875271" elapsed="0.000000"/>
 </kw>
-<kw name="Verify Results">
-<kw name="Wait Until Page Contains" owner="SeleniumLibrary">
-<msg time="2024-04-06T21:38:12.771203" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-10.png"&gt;&lt;img src="selenium-screenshot-10.png" width="800px"&gt;&lt;/a&gt;</msg>
-<msg time="2024-04-06T21:38:12.771203" level="FAIL">Text 'กรุณากรอกชื่อเป็นภาษาอังกฤษเท่านั้น' did not appear in 5 seconds.</msg>
-<arg>${RESULT_FIRST_NAME_ENG}</arg>
-<doc>Waits until ``text`` appears on the current page.</doc>
-<status status="FAIL" start="2024-04-06T21:38:07.338533" elapsed="5.435669">Text 'กรุณากรอกชื่อเป็นภาษาอังกฤษเท่านั้น' did not appear in 5 seconds.</status>
+<kw name="Click Button">
+<status status="NOT RUN" start="2024-04-07T12:11:33.875271" elapsed="0.000000"/>
 </kw>
-<kw name="Page Should Contain" owner="SeleniumLibrary">
-<arg>${RESULT_FIRST_NAME_ENG}</arg>
-<doc>Verifies that current page contains ``text``.</doc>
-<status status="NOT RUN" start="2024-04-06T21:38:12.775202" elapsed="0.000000"/>
-</kw>
-<kw name="Wait Until Page Contains" owner="SeleniumLibrary">
-<arg>${RESULT_ID_CARD}</arg>
-<doc>Waits until ``text`` appears on the current page.</doc>
-<status status="NOT RUN" start="2024-04-06T21:38:12.775202" elapsed="0.000000"/>
-</kw>
-<kw name="Page Should Contain" owner="SeleniumLibrary">
-<arg>${RESULT_ID_CARD}</arg>
-<doc>Verifies that current page contains ``text``.</doc>
-<status status="NOT RUN" start="2024-04-06T21:38:12.775202" elapsed="0.000000"/>
-</kw>
-<kw name="Wait Until Page Contains" owner="SeleniumLibrary">
-<arg>${RESULT_PASSWORD}</arg>
-<doc>Waits until ``text`` appears on the current page.</doc>
-<status status="NOT RUN" start="2024-04-06T21:38:12.775202" elapsed="0.000000"/>
-</kw>
-<kw name="Page Should Contain" owner="SeleniumLibrary">
-<arg>${RESULT_PASSWORD}</arg>
-<doc>Verifies that current page contains ``text``.</doc>
-<status status="NOT RUN" start="2024-04-06T21:38:12.776204" elapsed="0.000000"/>
-</kw>
-<kw name="Wait Until Page Contains" owner="SeleniumLibrary">
-<arg>${RESULT_MOBILE}</arg>
-<doc>Waits until ``text`` appears on the current page.</doc>
-<status status="NOT RUN" start="2024-04-06T21:38:12.776204" elapsed="0.000000"/>
-</kw>
-<kw name="Page Should Contain" owner="SeleniumLibrary">
-<arg>${RESULT_MOBILE}</arg>
-<doc>Verifies that current page contains ``text``.</doc>
-<status status="NOT RUN" start="2024-04-06T21:38:12.776204" elapsed="0.000000"/>
-</kw>
-<kw name="Wait Until Page Contains" owner="SeleniumLibrary">
-<arg>${RESULT_EMAIL}</arg>
-<doc>Waits until ``text`` appears on the current page.</doc>
-<status status="NOT RUN" start="2024-04-06T21:38:12.776204" elapsed="0.000000"/>
-</kw>
-<kw name="Page Should Contain" owner="SeleniumLibrary">
-<arg>${RESULT_EMAIL}</arg>
-<doc>Verifies that current page contains ``text``.</doc>
-<status status="NOT RUN" start="2024-04-06T21:38:12.777207" elapsed="0.000000"/>
+<kw name="Verify Signup Results">
+<status status="NOT RUN" start="2024-04-07T12:11:33.876271" elapsed="0.000000"/>
 </kw>
 <kw name="Close Browser" owner="SeleniumLibrary">
 <doc>Closes the current browser.</doc>
-<status status="NOT RUN" start="2024-04-06T21:38:12.777207" elapsed="0.000000"/>
+<status status="NOT RUN" start="2024-04-07T12:11:33.876271" elapsed="0.000000"/>
 </kw>
-<status status="FAIL" start="2024-04-06T21:38:07.337526" elapsed="5.439681">Text 'กรุณากรอกชื่อเป็นภาษาอังกฤษเท่านั้น' did not appear in 5 seconds.</status>
-</kw>
-<doc>Test case to search chrome and verify results</doc>
-<tag>search</tag>
-<status status="FAIL" start="2024-04-06T21:38:02.633644" elapsed="10.144563">Text 'กรุณากรอกชื่อเป็นภาษาอังกฤษเท่านั้น' did not appear in 5 seconds.</status>
+<status status="FAIL" start="2024-04-07T12:11:26.873593" elapsed="7.002678">NoSuchElementException: Message: Could not locate element with visible text: 2546; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
+</status>
 </test>
-<status status="FAIL" start="2024-04-06T21:38:02.200615" elapsed="10.579588"/>
+<test id="s1-t2" name="Check Invalid Name TH" line="50">
+<kw name="Open SignupForm">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2024-04-07T12:11:33.878271" level="INFO">Opening browser 'Chrome' to base url 'http://localhost:5173/'.</msg>
+<arg>http://localhost:5173/</arg>
+<arg>${BROWSER}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2024-04-07T12:11:33.878271" elapsed="2.680317"/>
+</kw>
+<status status="PASS" start="2024-04-07T12:11:33.877272" elapsed="2.681316"/>
+</kw>
+<kw name="Wait Until Page">
+<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
+<arg>id=root</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" start="2024-04-07T12:11:36.560587" elapsed="0.025995"/>
+</kw>
+<status status="PASS" start="2024-04-07T12:11:36.559585" elapsed="0.027999"/>
+</kw>
+<kw name="TH information But Input EN">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-04-07T12:11:36.590585" level="INFO">Typing text 'Patiphat' into text field 'id=firstnameTha'.</msg>
+<arg>id=firstnameTha</arg>
+<arg>${Firstname_EN}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-04-07T12:11:36.590585" elapsed="0.295020"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-04-07T12:11:36.886605" level="INFO">Typing text 'Rattanosot' into text field 'id=lastnameTha'.</msg>
+<arg>id=lastnameTha</arg>
+<arg>${Lastname_EN}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-04-07T12:11:36.885605" elapsed="0.167348"/>
+</kw>
+<status status="PASS" start="2024-04-07T12:11:36.589586" elapsed="0.463367"/>
+</kw>
+<kw name="Click Space">
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2024-04-07T12:11:37.053957" level="INFO">Clicking element 'id=root'.</msg>
+<arg>id=root</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-04-07T12:11:37.053957" elapsed="0.136498"/>
+</kw>
+<status status="PASS" start="2024-04-07T12:11:37.052953" elapsed="0.137502"/>
+</kw>
+<kw name="Verify Invalid Name_TH_Only">
+<kw name="Page Should Contain" owner="SeleniumLibrary">
+<msg time="2024-04-07T12:11:37.485393" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-2.png"&gt;&lt;img src="selenium-screenshot-2.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg time="2024-04-07T12:11:37.485794" level="FAIL">Page should have contained text 'Must be in Thai only' but did not.</msg>
+<arg>Must be in Thai only</arg>
+<doc>Verifies that current page contains ``text``.</doc>
+<status status="FAIL" start="2024-04-07T12:11:37.193454" elapsed="0.310810">Page should have contained text 'Must be in Thai only' but did not.</status>
+</kw>
+<status status="FAIL" start="2024-04-07T12:11:37.192454" elapsed="0.312274">Page should have contained text 'Must be in Thai only' but did not.</status>
+</kw>
+<kw name="Close Browser" owner="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="NOT RUN" start="2024-04-07T12:11:37.504728" elapsed="0.000000"/>
+</kw>
+<status status="FAIL" start="2024-04-07T12:11:33.877272" elapsed="3.628458">Page should have contained text 'Must be in Thai only' but did not.</status>
+</test>
+<test id="s1-t3" name="Check In Valid Name EN" line="58">
+<kw name="Open SignupForm">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2024-04-07T12:11:37.507782" level="INFO">Opening browser 'Chrome' to base url 'http://localhost:5173/'.</msg>
+<arg>http://localhost:5173/</arg>
+<arg>${BROWSER}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2024-04-07T12:11:37.507782" elapsed="2.593564"/>
+</kw>
+<status status="PASS" start="2024-04-07T12:11:37.507728" elapsed="2.593618"/>
+</kw>
+<kw name="Wait Until Page">
+<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
+<arg>id=root</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" start="2024-04-07T12:11:40.103346" elapsed="0.032004"/>
+</kw>
+<status status="PASS" start="2024-04-07T12:11:40.102355" elapsed="0.034002"/>
+</kw>
+<kw name="EN information But Input TH">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-04-07T12:11:40.146350" level="INFO">Typing text 'ปฏิพัทธ์' into text field 'id=firstnameEng'.</msg>
+<arg>id=firstnameEng</arg>
+<arg>${Firstname_TH}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-04-07T12:11:40.146350" elapsed="0.237019"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-04-07T12:11:40.384367" level="INFO">Typing text 'รัตโนสถ' into text field 'id=lastnameEng'.</msg>
+<arg>id=lastnameEng</arg>
+<arg>${Lastname_TH}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-04-07T12:11:40.383369" elapsed="0.221016"/>
+</kw>
+<status status="PASS" start="2024-04-07T12:11:40.145350" elapsed="0.459035"/>
+</kw>
+<kw name="Click Space">
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2024-04-07T12:11:40.606386" level="INFO">Clicking element 'id=root'.</msg>
+<arg>id=root</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-04-07T12:11:40.606386" elapsed="0.075001"/>
+</kw>
+<status status="PASS" start="2024-04-07T12:11:40.605384" elapsed="0.076003"/>
+</kw>
+<kw name="Verify Invalid Name_EN_Only">
+<kw name="Page Should Contain" owner="SeleniumLibrary">
+<msg time="2024-04-07T12:11:42.225392" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-3.png"&gt;&lt;img src="selenium-screenshot-3.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg time="2024-04-07T12:11:42.226391" level="FAIL">Page should have contained text 'Must be in English only' but did not.</msg>
+<arg>Must be in English only</arg>
+<doc>Verifies that current page contains ``text``.</doc>
+<status status="FAIL" start="2024-04-07T12:11:40.762406" elapsed="1.465586">Page should have contained text 'Must be in English only' but did not.</status>
+</kw>
+<status status="FAIL" start="2024-04-07T12:11:40.760397" elapsed="1.467993">Page should have contained text 'Must be in English only' but did not.</status>
+</kw>
+<kw name="Close Browser" owner="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="NOT RUN" start="2024-04-07T12:11:42.229393" elapsed="0.000000"/>
+</kw>
+<status status="FAIL" start="2024-04-07T12:11:37.506727" elapsed="4.723663">Page should have contained text 'Must be in English only' but did not.</status>
+</test>
+<test id="s1-t4" name="Check In ID Card Valid" line="66">
+<kw name="Open SignupForm">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2024-04-07T12:11:42.233389" level="INFO">Opening browser 'Chrome' to base url 'http://localhost:5173/'.</msg>
+<arg>http://localhost:5173/</arg>
+<arg>${BROWSER}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2024-04-07T12:11:42.232391" elapsed="2.838079"/>
+</kw>
+<status status="PASS" start="2024-04-07T12:11:42.232391" elapsed="2.839078"/>
+</kw>
+<kw name="Wait Until Page">
+<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
+<arg>id=root</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" start="2024-04-07T12:11:45.073470" elapsed="0.051006"/>
+</kw>
+<status status="PASS" start="2024-04-07T12:11:45.072467" elapsed="0.052009"/>
+</kw>
+<kw name="Input ID Card A_12 characters">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-04-07T12:11:45.132473" level="INFO">Typing text 'A729800289811' into text field 'id=idCard'.</msg>
+<arg>id=idCard</arg>
+<arg>${IDcard_A_12}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-04-07T12:11:45.131474" elapsed="0.473177"/>
+</kw>
+<status status="PASS" start="2024-04-07T12:11:45.130473" elapsed="0.475179"/>
+</kw>
+<kw name="Click Space">
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2024-04-07T12:11:45.609652" level="INFO">Clicking element 'id=root'.</msg>
+<arg>id=root</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-04-07T12:11:45.609652" elapsed="0.171014"/>
+</kw>
+<status status="PASS" start="2024-04-07T12:11:45.608652" elapsed="0.172014"/>
+</kw>
+<kw name="Verify Invalid IDcard_Only">
+<kw name="Page Should Contain" owner="SeleniumLibrary">
+<msg time="2024-04-07T12:11:46.134508" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-4.png"&gt;&lt;img src="selenium-screenshot-4.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg time="2024-04-07T12:11:46.135214" level="FAIL">Page should have contained text 'number only' but did not.</msg>
+<arg>number only</arg>
+<doc>Verifies that current page contains ``text``.</doc>
+<status status="FAIL" start="2024-04-07T12:11:45.782662" elapsed="0.353367">Page should have contained text 'number only' but did not.</status>
+</kw>
+<status status="FAIL" start="2024-04-07T12:11:45.782662" elapsed="0.353367">Page should have contained text 'number only' but did not.</status>
+</kw>
+<kw name="Close Browser" owner="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="NOT RUN" start="2024-04-07T12:11:46.138138" elapsed="0.000000"/>
+</kw>
+<status status="FAIL" start="2024-04-07T12:11:42.231392" elapsed="3.909636">Page should have contained text 'number only' but did not.</status>
+</test>
+<status status="FAIL" start="2024-04-07T12:11:26.471804" elapsed="19.671740"/>
 </suite>
 <statistics>
 <total>
-<stat pass="0" fail="1" skip="0">All Tests</stat>
+<stat pass="0" fail="4" skip="0">All Tests</stat>
 </total>
 <tag>
-<stat pass="0" fail="1" skip="0">search</stat>
 </tag>
 <suite>
-<stat pass="0" fail="1" skip="0" id="s1" name="TestForm">TestForm</stat>
+<stat pass="0" fail="4" skip="0" id="s1" name="TestForm">TestForm</stat>
 </suite>
 </statistics>
 <errors>
