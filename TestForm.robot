@@ -2,133 +2,156 @@
 Library           SeleniumLibrary
 
 *** Variables ***
-${BROWSER}    Chrome
-##########   Valid    ##########
-${Name_Title_TH_1}    นาย
-${Name_Title_TH_2}    นาง
-${Name_Title_TH_3}    นางสาว
-${Firstname_TH}    ปฏิพัทธ์
-${Lastname_TH}    รัตโนสถ
-${Name_Title_EN_1}    Mr.
-${Name_Title_EN_2}    Mrs.
-${Name_Title_EN_3}    Ms.
-${Firstname_EN}    Patiphat
-${Lastname_EN}    Rattanosot
-${Day}  5
-${Month}    กันยายน
-${YearB.E.}    2546
-${IDcard_13}    1729800289811
-${Password8}    IsNotPassword8
-${Phone_number}    0800781563
-${Email_Webmail}    654259017@webmail.npru.ac.th
-##########   In Valid    ##########
-${Firstname_EN_low}    patiphat
-${Lastname_EN_low}    rattanosot
-${IDcard_A_12}    A729800289811
-${IDcard_12}    172980028981
-${password8}    isnotpassword8    # Lowercase
-${PASSWORD8}    ISNOTPASSWORD8    # Uppercase
-${Password_7}    IsNotPa
-${Phone_number_<10}    080078156
-${Email_Gmail}    654259017@Gmail.com
+${BROWSER}          Chrome
+${URL}              https://form-ruby-theta.vercel.app
+${Valid_Thai_Name_Title}  นางสาว
+${Valid_Thai_Firstname}     อาทิตยา 
+${Valid_Thai_Lastname}      คงดี
+${Valid_English_Name_Title}  Ms.
+${Valid_English_Firstname}     Arthittaya
+${Valid_English_Lastname}      Kongdee
+${Valid_Day}              10
+${Valid_Month}            กันยายน
+${Valid_YearB_E}          2544
+${Valid_ID_Card}        1739300002297
+${Valid_Password}        IsNotPassword1
+${Valid_Phone_number}     0800782723
+${Valid_Email_Webmail}    654259029@webmail.npru.ac.th
+${SCROLL_SCRIPT_DOWN}    window.scrollTo(0, document.body.scrollHeight);
 
 *** Test Cases ***
-Successfully signed
-    Open SignupForm
-    Wait Until Page 
-    Input TH information
-    Input EN information
-    Input Birthday
-    Input ID Card
-    Input Password
-    Input Phone Number
-    Input Email
+Successfully Signed Up
+    [Documentation]    ผู้ใช้สามารถลงทะเบียนสำเร็จด้วยข้อมูลที่ถูกต้อง
+    Open Signup Form
+    Input TH Information    ${Valid_Thai_Name_Title}    ${Valid_Thai_Firstname}    ${Valid_Thai_Lastname}
+    Input EN Information    ${Valid_English_Name_Title}    ${Valid_English_Firstname}    ${Valid_English_Lastname}
+    Input Birthday    ${Valid_Day}    ${Valid_Month}    ${Valid_YearB_E}
+    Input ID Card    ${Valid_ID_Card}
+    Input Password    ${Valid_Password}
+    Input Phone Number    ${Valid_Phone_number}
+    Input Email    ${Valid_Email_Webmail}
     Input Checkbox
     Click Button
-    Verify Signup Results
-    Close Browser
-Check Invalid Name TH 
-    Open SignupForm
-    Wait Until Page 
-    TH information But Input EN
-    Click Space
+    Verify Signup Success
+
+Check Invalid Name TH
+    [Documentation]    ตรวจสอบข้อความผิดพลาดสำหรับชื่อไทยที่ไม่ถูกต้อง
+    Open Signup Form
+    Input TH Information    ${Valid_Thai_Name_Title}    ${Valid_English_Firstname}    ${Valid_Thai_Lastname}
     Verify Invalid Name_TH_Only
-    Close Browser
 
-Check In Valid Name EN
-    Open SignupForm
-    Wait Until Page 
-    EN information But Input TH
-    Click Space
+Check Invalid Name EN
+    [Documentation]    ตรวจสอบข้อความผิดพลาดสำหรับชื่ออังกฤษที่ไม่ถูกต้อง
+    Open Signup Form
+    Input EN Information    ${Valid_English_Name_Title}    ${Valid_Thai_Firstname}    ${Valid_English_Lastname}
     Verify Invalid Name_EN_Only
-    Close Browser
 
-Check In ID Card Valid 
-    Open SignupForm
-    Wait Until Page 
-    Input ID Card A_12 characters
-    Click Space
+Check Invalid ID Card
+    [Documentation]    ตรวจสอบข้อความผิดพลาดสำหรับหมายเลขบัตรประชาชนที่ไม่ถูกต้อง
+    Open Signup Form
+    Input ID Card    W1739300002297
+    Execute JavaScript    ${SCROLL_SCRIPT_DOWN}
+    Sleep    2s
+    Input Checkbox
+    Click Button 
     Verify Invalid IDcard_Only
-    Close Browser
+    Capture Page Screenshot
+
+Check Invalid Password
+    [Documentation]    ตรวจสอบข้อความผิดพลาดสำหรับรหัสผ่านไม่ถูกต้อง
+    Open Signup Form
+    Input Password    IsNotPassword
+    Execute JavaScript    ${SCROLL_SCRIPT_DOWN}
+    Sleep    2s
+    Input Checkbox
+    Click Button 
+    Verify Invalid IDcard_Only
+    Capture Page Screenshot
+
+Check Invalid Phone_number
+    [Documentation]    ตรวจสอบข้อความผิดพลาดสำหรับเบอร์โทรศัพท์ไม่ถูดต้อง
+    Open Signup Form
+    Input Phone_number     0800782723
+    Execute JavaScript    ${SCROLL_SCRIPT_DOWN}
+    Sleep    2s
+    Input Checkbox
+    Click Button 
+    Verify Invalid IDcard_Only
+    Capture Page Screenshot
+
+Check Invalid Email_Webmail
+    [Documentation]    ตรวจสอบข้อความผิดพลาดสำหรับEmailไม่ถูกต้อง
+    Open Signup Form
+    Input Email  Moshi2544@gmail.com
+    Execute JavaScript    ${SCROLL_SCRIPT_DOWN}
+    Sleep    2s
+    Input Checkbox
+    Click Button 
+    Verify Invalid IDcard_Only
+    Capture Page Screenshot
 
 *** Keywords ***
-Open SignupForm
-    Open Browser    http://localhost:5173/    ${BROWSER}
-
-Wait Until Page
+Open Signup Form
+    Open Browser    ${URL}    ${BROWSER}
     Wait Until Page Contains Element    id=root
-###########
-Input TH information
-    Select From List by Value    id=nameTitleTha    ${Name_Title_TH_1}
-    Input Text      id=firstnameTha                 ${Firstname_TH}
-    Input Text      id=lastnameTha                 ${Lastname_TH}
 
-Input EN information
-    Select From List by Value    id=nameTitleEng    ${Name_Title_EN_1}
-    Input Text      id=firstnameEng                 ${Firstname_EN}
-    Input Text      id=lastnameEng                 ${Lastname_EN}
+Input TH Information
+    [Arguments]    ${title}    ${firstname}    ${lastname}
+    Select From List by Value    id=nameTitleTha    ${title}
+    Input Text    id=firstnameTha    ${firstname}
+    Input Text    id=lastnameTha    ${lastname}
+
+Input EN Information
+    [Arguments]    ${title}    ${firstname}    ${lastname}
+    Select From List by Value    id=nameTitleEng    ${title}
+    Input Text    id=firstnameEng    ${firstname}
+    Input Text    id=lastnameEng    ${lastname}
 
 Input Birthday
-    Select From List by Value    id=birthDate    ${Day}
-    Select From List by Label    id=birthMonth    ${Month}
-    Select From List by Label    id=birthYear    ${YearB.E.}
+    [Arguments]    ${day}    ${month}    ${year}
+    Select From List by Value    id=birthDate    ${day}
+    Select From List by Label    id=birthMonth    ${month}
+    Select From List by Label    id=birthYear    ${year}
 
 Input ID Card
-    Input Text      id=idCard                 ${IDcard_13}
+    [Arguments]    ${id_card}
+    Input Text    id=idCard    ${id_card}
 
 Input Password
-    Input Text      id=password                 ${Password8}
+    [Arguments]    ${password}
+    Input Text    id=password    ${password}
 
 Input Phone Number
-    Input Text      id=mobile                 ${Phone_number}
+    [Arguments]    ${phone}
+    Input Text    id=mobile    ${phone}
 
 Input Email
-    Input Text      id=email                 ${Email_Webmail}
+    [Arguments]    ${email}
+    Input Text    id=email    ${email}
 
 Input Checkbox
     Execute JavaScript    document.getElementById('accept').click()
-    
-Click Button    
-    Execute JavaScript    document.getElementById('submitbtn').click()  
-Verify Signup Results  
-    Page Should Contain    Submitting...   
-############
-Click Space
-    Click Element    id=root
-TH information But Input EN
-    Input Text      id=firstnameTha                ${Firstname_EN}
-    Input Text      id=lastnameTha                 ${Lastname_EN}
-EN information But Input TH
-    Input Text      id=firstnameEng                 ${Firstname_TH}
-    Input Text      id=lastnameEng                 ${Lastname_TH}
 
-Input ID Card A_12 characters
-    Input Text      id=idCard                 ${IDcard_A_12}
+Click Button
+    Execute JavaScript    document.getElementById('submitbtn').click()
+
+Verify Signup Success
+    Page Should Contain    Submitting...
+
 Verify Invalid Name_TH_Only
-    Page Should Contain    Must be in Thai only
+    Page Should Contain    ต้องเป็นภาษาไทยเท่านั้น
 
 Verify Invalid Name_EN_Only
-    Page Should Contain    Must be in English only
+    Page Should Contain    ต้องเป็นภาษาอังกฤษเท่านั้น
 
 Verify Invalid IDcard_Only
-    Page Should Contain    number only   
+    Page Should Contain    ต้องเป็นตัวเลขเท่านั้น
+
+Verify Invalid Password_Only
+    Page Should Contain    Password must contain at least one number letter
+
+Verify Invalid Phone_number_Only
+    Page Should Contain    Must be exactly 10 characters
+
+Verify Invalid Email_Webmail_Only
+    Page Should Contain    Email must contain specific domain name
